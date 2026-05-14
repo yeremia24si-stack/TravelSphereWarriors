@@ -13,7 +13,7 @@
 @theme {
   --font-barlow: "Barlow", sans-serif;
   --font-poppins: "Poppins", sans-serif;
-  
+
   --color-latar: #f3f4f6;
   --color-teks: #374151;
   --color-teks-samping: #6b7280;
@@ -23,7 +23,7 @@
   --color-biru: #3b82f6;
   --color-kuning: #f59e0b;
 }
-/* Default font */
+
 body {
   @apply font-sans;
 }

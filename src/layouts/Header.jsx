@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FaBell, FaSearch, FaComments, FaGift } from "react-icons/fa";
+import { FaBell, FaSearch, FaComments, FaGlobe } from "react-icons/fa";
 import { SlSettings } from "react-icons/sl";
 
 export default function Header() {
@@ -10,11 +10,13 @@ export default function Header() {
   const [darkMode, setDarkMode] = useState(false);
 
   const data = [
-    { id: 1, name: "Nasi Goreng" },
-    { id: 2, name: "Mie Ayam" },
-    { id: 3, name: "Ayam Bakar" },
-    { id: 4, name: "Es Teh Manis" },
-    { id: 5, name: "Kopi Susu" },
+    { id: 1, name: "Bali Explorer 5D4N" },
+    { id: 2, name: "Raja Ampat Diving" },
+    { id: 3, name: "Lombok Beach Escape" },
+    { id: 4, name: "Komodo Island 4D3N" },
+    { id: 5, name: "Bromo Sunrise Trek" },
+    { id: 6, name: "Java Heritage Tour" },
+    { id: 7, name: "Flores Adventure" },
   ];
 
   const filteredData = data.filter((item) =>
@@ -48,9 +50,9 @@ export default function Header() {
         <div className="relative w-full max-w-md">
           <input
             type="text"
-            placeholder="Search Here..."
+            placeholder="Search packages, bookings..."
             onClick={() => setOpenSearch(true)}
-            className="border border-gray-200 bg-gray-50 p-2.5 pr-10 w-full rounded-xl outline-none text-sm dark:bg-gray-700 dark:text-white focus:border-hijau transition-colors"
+            className="border border-gray-200 bg-gray-50 p-2.5 pr-10 w-full rounded-xl outline-none text-sm dark:bg-gray-700 dark:text-white focus:border-biru transition-colors"
           />
           <FaSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
         </div>
@@ -62,39 +64,40 @@ export default function Header() {
           <div className="relative">
             <div
               onClick={() => setOpenNotif(!openNotif)}
-              className="relative p-2.5 bg-blue-50 rounded-2xl text-blue-500 cursor-pointer hover:bg-blue-100 transition-colors"
+              className="relative p-2.5 bg-blue-50 rounded-2xl text-biru cursor-pointer hover:bg-blue-100 transition-colors"
             >
               <FaBell className="text-base" />
-              <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-blue-500 rounded-full border-2 border-white"></span>
+              <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-biru rounded-full border-2 border-white"></span>
             </div>
             {openNotif && (
-              <div className="absolute right-0 mt-2 w-64 bg-white shadow-xl rounded-xl p-4 text-sm z-50 border border-gray-100">
-                <p className="font-semibold mb-3 text-gray-700">Notifikasi</p>
+              <div className="absolute right-0 mt-2 w-72 bg-white shadow-xl rounded-xl p-4 text-sm z-50 border border-gray-100">
+                <p className="font-semibold mb-3 text-gray-700">Notifications</p>
                 <div className="space-y-2 text-gray-600">
-                  <p className="flex items-center gap-2"><span>🛒</span> Order baru masuk</p>
-                  <p className="flex items-center gap-2"><span>🚚</span> Pesanan dikirim</p>
-                  <p className="flex items-center gap-2"><span>💰</span> Pembayaran diterima</p>
+                  <p className="flex items-center gap-2"><span>✈️</span> New booking: Bali Explorer</p>
+                  <p className="flex items-center gap-2"><span>💳</span> Payment received from Andi</p>
+                  <p className="flex items-center gap-2"><span>⭐</span> New 5-star review received</p>
+                  <p className="flex items-center gap-2"><span>🗺️</span> Package "Raja Ampat" updated</p>
                 </div>
               </div>
             )}
           </div>
 
-          {/* CHAT */}
-          <div className="relative p-2.5 bg-blue-50 rounded-2xl text-blue-500 cursor-pointer hover:bg-blue-100 transition-colors">
-            <FaComments className="text-base" />
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-blue-500 rounded-full border-2 border-white"></span>
+          {/* GLOBE / WORLD */}
+          <div className="relative p-2.5 bg-blue-50 rounded-2xl text-biru cursor-pointer hover:bg-blue-100 transition-colors">
+            <FaGlobe className="text-base" />
+            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-biru rounded-full border-2 border-white"></span>
           </div>
 
-          {/* GIFT */}
-          <div className="relative p-2.5 bg-blue-50 rounded-2xl text-blue-500 cursor-pointer hover:bg-blue-100 transition-colors">
-            <FaGift className="text-base" />
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+          {/* CHAT */}
+          <div className="relative p-2.5 bg-blue-50 rounded-2xl text-biru cursor-pointer hover:bg-blue-100 transition-colors">
+            <FaComments className="text-base" />
+            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-kuning rounded-full border-2 border-white"></span>
           </div>
 
           {/* SETTINGS */}
           <div
             onClick={() => setOpenSettings(true)}
-            className="p-2.5 bg-red-50 rounded-2xl text-red-400 cursor-pointer hover:bg-red-100 transition-colors"
+            className="p-2.5 bg-red-50 rounded-2xl text-merah cursor-pointer hover:bg-red-100 transition-colors"
           >
             <SlSettings className="text-base" />
           </div>
@@ -106,7 +109,7 @@ export default function Header() {
             </span>
             <img
               src="/img/Pictures4.png"
-              className="w-9 h-9 rounded-full object-cover ring-2 ring-hijau ring-offset-1"
+              className="w-9 h-9 rounded-full object-cover ring-2 ring-biru ring-offset-1"
               alt="profile"
             />
           </div>
@@ -115,22 +118,29 @@ export default function Header() {
 
       {/* SEARCH MODAL */}
       {openSearch && (
-        <div className="fixed inset-0 bg-black/30 flex justify-center items-center z-50"
-             onClick={() => setOpenSearch(false)}>
-          <div className="bg-white p-6 rounded-xl w-80 shadow-2xl"
-               onClick={(e) => e.stopPropagation()}>
-            <h2 className="mb-3 font-semibold text-gray-700">Search</h2>
+        <div
+          className="fixed inset-0 bg-black/30 flex justify-center items-center z-50"
+          onClick={() => setOpenSearch(false)}
+        >
+          <div
+            className="bg-white p-6 rounded-xl w-96 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 className="mb-3 font-semibold text-gray-700">Search Packages</h2>
             <input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="border border-gray-200 p-2.5 w-full mb-3 rounded-xl outline-none text-sm focus:border-hijau"
-              placeholder="Cari menu..."
+              className="border border-gray-200 p-2.5 w-full mb-3 rounded-xl outline-none text-sm focus:border-biru"
+              placeholder="Type to search..."
               autoFocus
             />
             <div className="space-y-1">
               {filteredData.map((item) => (
-                <div key={item.id} className="p-2.5 bg-gray-50 rounded-lg text-sm text-gray-600 hover:bg-green-50 hover:text-hijau cursor-pointer transition-colors">
-                  {item.name}
+                <div
+                  key={item.id}
+                  className="p-2.5 bg-gray-50 rounded-lg text-sm text-gray-600 hover:bg-blue-50 hover:text-biru cursor-pointer transition-colors flex items-center gap-2"
+                >
+                  <span>✈️</span> {item.name}
                 </div>
               ))}
             </div>
@@ -140,10 +150,14 @@ export default function Header() {
 
       {/* SETTINGS MODAL */}
       {openSettings && (
-        <div className="fixed inset-0 bg-black/30 flex justify-center items-center z-50"
-             onClick={() => setOpenSettings(false)}>
-          <div className="bg-white p-6 rounded-xl w-80 shadow-2xl"
-               onClick={(e) => e.stopPropagation()}>
+        <div
+          className="fixed inset-0 bg-black/30 flex justify-center items-center z-50"
+          onClick={() => setOpenSettings(false)}
+        >
+          <div
+            className="bg-white p-6 rounded-xl w-80 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
             <h2 className="font-semibold mb-4 text-gray-700">Settings</h2>
             <button
               onClick={() => setDarkMode(!darkMode)}

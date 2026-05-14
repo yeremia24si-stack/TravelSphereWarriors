@@ -1,36 +1,51 @@
+import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import Sidebar from "./layouts/Sidebar";
-import Header from "./layouts/Header";
-import Dashboard from "./pages/Dashboard";
-import Orders from "./pages/Orders";
-import Customers from "./pages/Customer";
-import ErrorPage from "./components/ErrorPage";
+import MainLayout from "./layouts/MainLayout";
+import AuthLayout from "./layouts/AuthLayout";
+import Loading from "./components/Loading";
 
-// Halaman error
-const Error400 = () => <ErrorPage code="400" description="Bad Request" />;
-const Error401 = () => <ErrorPage code="401" description="Unauthorized" />;
-const Error403 = () => <ErrorPage code="403" description="Forbidden" />;
-const NotFound = () => <ErrorPage code="404" description="Page Not Found" />;
+// ---- Lazy imports (pages dimuat hanya saat dibutuhkan) ----
+const Dashboard    = React.lazy(() => import("./pages/Dashboard"));
+const Customers    = React.lazy(() => import("./pages/Customers"));
+const Bookings     = React.lazy(() => import("./pages/Bookings"));
+const TourPackages = React.lazy(() => import("./pages/TourPackages"));
+const Payments     = React.lazy(() => import("./pages/Payments"));
+
+// Auth pages
+const Login    = React.lazy(() => import("./pages/auth/Login"));
+const Register = React.lazy(() => import("./pages/auth/Register"));
+const Forgot   = React.lazy(() => import("./pages/auth/Forgot"));
+
+// Error page
+const ErrorPage = React.lazy(() => import("./components/ErrorPage"));
+const NotFound  = () => <ErrorPage code="404" description="Page Not Found" />;
 
 function App() {
   return (
-    <div id="app-container" className="bg-gray-100 min-h-screen flex">
-      <div id="layout-wrapper" className="flex flex-row flex-1">
-        <Sidebar />
-        <div id="main-content" className="flex-1 p-4">
-          <Header />
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/customers" element={<Customers />} />
-            <Route path="/error-400" element={<Error400 />} />
-            <Route path="/error-401" element={<Error401 />} />
-            <Route path="/error-403" element={<Error403 />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </div>
-      </div>
-    </div>
+    <Suspense fallback={<Loading />}>
+      <Routes>
+
+        {/* ===== MainLayout routes (Sidebar + Header) ===== */}
+        <Route element={<MainLayout />}>
+          <Route path="/"               element={<Dashboard />} />
+          <Route path="/customers"      element={<Customers />} />
+          <Route path="/bookings"       element={<Bookings />} />
+          <Route path="/tour-packages"  element={<TourPackages />} />
+          <Route path="/payments"       element={<Payments />} />
+        </Route>
+
+        {/* ===== AuthLayout routes (centered card, no sidebar) ===== */}
+        <Route element={<AuthLayout />}>
+          <Route path="/login"    element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot"   element={<Forgot />} />
+        </Route>
+
+        {/* 404 */}
+        <Route path="*" element={<NotFound />} />
+
+      </Routes>
+    </Suspense>
   );
 }
 
