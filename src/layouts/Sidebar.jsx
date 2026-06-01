@@ -5,14 +5,16 @@ import {
   MdConfirmationNumber,
   MdCardTravel,
   MdPayment,
+  MdWidgets,
 } from "react-icons/md";
 
 const menuItems = [
-  { icon: MdDashboard, label: "Dashboard", path: "/" },
-  { icon: MdPeople, label: "Customers", path: "/customers" },
-  { icon: MdConfirmationNumber, label: "Bookings", path: "/bookings" },
-  { icon: MdCardTravel, label: "Tour Packages", path: "/tour-packages" },
-  { icon: MdPayment, label: "Payments", path: "/payments" },
+  { icon: MdDashboard,         label: "Dashboard",     path: "/"              },
+  { icon: MdPeople,            label: "Customers",     path: "/customers"     },
+  { icon: MdConfirmationNumber,label: "Bookings",      path: "/bookings"      },
+  { icon: MdCardTravel,        label: "Tour Packages", path: "/tour-packages" },
+  { icon: MdPayment,           label: "Payments",      path: "/payments"      },
+  { icon: MdWidgets,           label: "Components",    path: "/components-ui" },
 ];
 
 export default function Sidebar() {
@@ -38,7 +40,15 @@ export default function Sidebar() {
       {/* Navigation */}
       <nav className="flex-1 px-3 py-4 overflow-y-auto">
         <p className="text-[10px] font-bold text-gray-300 uppercase tracking-widest px-3.5 mb-2">Main Menu</p>
-        {menuItems.map(({ icon: Icon, label, path }) => (
+        {menuItems.slice(0, 5).map(({ icon: Icon, label, path }) => (
+          <NavLink key={label} to={path} className={menuClass}>
+            <Icon className="text-[17px] flex-shrink-0" />
+            {label}
+          </NavLink>
+        ))}
+
+        <p className="text-[10px] font-bold text-gray-300 uppercase tracking-widest px-3.5 mb-2 mt-4">Developer</p>
+        {menuItems.slice(5).map(({ icon: Icon, label, path }) => (
           <NavLink key={label} to={path} className={menuClass}>
             <Icon className="text-[17px] flex-shrink-0" />
             {label}
