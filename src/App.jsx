@@ -8,7 +8,7 @@ import Loading from "./components/Loading";
 const Dashboard    = React.lazy(() => import("./pages/Dashboard"));
 const Customers    = React.lazy(() => import("./pages/Customers"));
 const Bookings     = React.lazy(() => import("./pages/Bookings"));
-const TourPackages = React.lazy(() => import("./pages/TourPackages"));
+const TourPackages = React.lazy(() => import("./pages/Tourpackages"));
 const Payments     = React.lazy(() => import("./pages/Payments"));
 const Components   = React.lazy(() => import("./pages/Components"));
 
