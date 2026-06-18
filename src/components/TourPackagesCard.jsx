@@ -7,7 +7,7 @@ import Button from "./Button";
  * Menampilkan informasi paket wisata
  * Props: image, title, destination, category, duration, minPax, maxPax, price, rating, status
  */
-export default function Tourpackagecard({
+export default function TourPackageCard({
   image,
   title,
   destination,
