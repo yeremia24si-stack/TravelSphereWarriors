@@ -1,4 +1,4 @@
-export default function StatCounter({ icon, value, label, color = "text-biru" }) {
+export default function TrustBadge({ icon, value, label, color = "text-biru" }) {
   return (
     <div className="text-center">
       <div className="text-3xl mb-2">{icon}</div>

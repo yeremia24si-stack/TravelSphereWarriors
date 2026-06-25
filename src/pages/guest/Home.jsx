@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import HeroSection from "../../components/guest/HeroSection";
 import DestinationCard from "../../components/guest/DestinationCard";
 import TestimonialCard from "../../components/guest/TestimonialCard";
-import StatCounter from "../../components/guest/StatCounter";
+import TrustBadge from "../../components/guest/TrustBadge";
 
 const featuredPackages = [
   { id: 1, name: "Bali Explorer 5D4N",  destination: "Bali, Indonesia",   category: "Beach & Culture", price: 4200000, rating: 4.8, img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&h=240&fit=crop" },
@@ -32,10 +32,10 @@ export default function Home() {
       {/* Stats bar */}
       <section className="bg-white border-b border-gray-100 py-10">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-          <StatCounter icon="✈️" value="12,500+" label="Wisatawan Puas" />
-          <StatCounter icon="🗺️" value="500+"   label="Paket Wisata" />
-          <StatCounter icon="🌏" value="80+"    label="Destinasi" />
-          <StatCounter icon="⭐" value="4.8/5"  label="Rating Pelanggan" />
+          <TrustBadge icon="✈️" value="12,500+" label="Wisatawan Puas" />
+          <TrustBadge icon="🗺️" value="500+"   label="Paket Wisata" />
+          <TrustBadge icon="🌏" value="80+"    label="Destinasi" />
+          <TrustBadge icon="⭐" value="4.8/5"  label="Rating Pelanggan" />
         </div>
       </section>
 

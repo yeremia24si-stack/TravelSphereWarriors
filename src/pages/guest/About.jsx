@@ -1,4 +1,4 @@
-import StatCounter from "../../components/guest/StatCounter";
+import TrustBadge from "../../components/guest/TrustBadge";
 
 const team = [
   { name: "Budi Santoso",   role: "Founder & CEO",        avatar: "https://avatar.iran.liara.run/public/20" },
@@ -60,10 +60,10 @@ export default function About() {
       {/* Stats */}
       <section className="bg-gray-50 py-14">
         <div className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-          <StatCounter icon="📅" value="10+"     label="Tahun Pengalaman" />
-          <StatCounter icon="✈️" value="12,500+" label="Wisatawan Puas" />
-          <StatCounter icon="🗺️" value="500+"    label="Paket Wisata" />
-          <StatCounter icon="🏆" value="15+"     label="Penghargaan" />
+          <TrustBadge icon="📅" value="10+"     label="Tahun Pengalaman" />
+          <TrustBadge icon="✈️" value="12,500+" label="Wisatawan Puas" />
+          <TrustBadge icon="🗺️" value="500+"    label="Paket Wisata" />
+          <TrustBadge icon="🏆" value="15+"     label="Penghargaan" />
         </div>
       </section>
 

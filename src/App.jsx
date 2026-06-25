@@ -26,6 +26,11 @@ const MemberDashboard = React.lazy(() => import("./pages/member/MemberDashboard"
 const ExplorePackages = React.lazy(() => import("./pages/member/ExplorePackages"));
 const PackageDetail   = React.lazy(() => import("./pages/member/PackageDetail"));
 const Checkout        = React.lazy(() => import("./pages/member/Checkout"));
+const MyBookings      = React.lazy(() => import("./pages/member/MyBookings"));
+const BookingDetail   = React.lazy(() => import("./pages/member/BookingDetail"));
+const MyPayments      = React.lazy(() => import("./pages/member/MyPayments"));
+const Wishlist        = React.lazy(() => import("./pages/member/Wishlist"));
+const Profile         = React.lazy(() => import("./pages/member/Profile"));
 
 // ---- Auth ----
 const Login    = React.lazy(() => import("./pages/auth/Login"));
@@ -49,7 +54,7 @@ function App() {
           <Route path="/contact"        element={<Contact />} />
         </Route>
 
-        {/* ===== ADMIN (CRM) — dipindah ke /admin/* ===== */}
+        {/* ===== ADMIN (CRM) — /admin/* ===== */}
         <Route path="/admin" element={<MainLayout />}>
           <Route index                  element={<Dashboard />} />
           <Route path="customers"       element={<Customers />} />
@@ -65,6 +70,11 @@ function App() {
           <Route path="explore"         element={<ExplorePackages />} />
           <Route path="package/:id"     element={<PackageDetail />} />
           <Route path="checkout/:id"    element={<Checkout />} />
+          <Route path="bookings"        element={<MyBookings />} />
+          <Route path="bookings/:id"    element={<BookingDetail />} />
+          <Route path="payments"        element={<MyPayments />} />
+          <Route path="wishlist"        element={<Wishlist />} />
+          <Route path="profile"         element={<Profile />} />
         </Route>
 
         {/* ===== AUTH ===== */}
